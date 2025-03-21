@@ -1,0 +1,53 @@
+/* src/components/Sidebar.css */
+.sidebar {
+  width: 200px;
+  background-color: #C0C0C0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #E0E0E0;
+  padding: 5px;
+  border: 1px solid #A0A0A0;
+}
+
+.folder img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.folder:hover {
+  background-color: #D0D0D0;
+}
+
+/*
+  MEDIA QUERIES FOR RESPONSIVENESS
+  On narrow screens (<= 768px),
+  we can do one of two approaches:
+  1) Make the sidebar full-width at the top.
+  2) Allow horizontal scrolling of the "folders."
+
+  Below is an example that makes the sidebar full-width at the top,
+  and the folders align horizontally with a scroll if needed.
+*/
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;     /* Place folders next to each other horizontally */
+    overflow-x: auto;       /* If it doesn't fit, horizontal scroll will appear */
+    border-bottom: 2px solid #808080; /* Windows XP style line below the toolbar area */
+  }
+
+  .folder {
+    margin-bottom: 0;
+    margin-right: 10px; /* Small gap between folders horizontally */
+    flex-shrink: 0;     /* Prevent folder from squishing too small */
+  }
+}

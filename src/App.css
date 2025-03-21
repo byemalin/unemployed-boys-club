@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
-}
+/* src/App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100vw;
+  height: 100vh; /* Consider changing to min-height if you want scrolling on small screens */
+  margin: 0;
+  padding: 0;
+  background-color: #002050; /* Windows XP-ish color */
+  font-family: "Tahoma", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+/* This ensures the main window can shrink or grow */
+.main-window {
+  flex: 1; /* Take remaining space after sidebar */
+  background-color: #E0E0E0;
+  padding: 20px;
+  overflow-y: auto;
+  border-left: 2px solid #808080;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*
+  MEDIA QUERIES FOR RESPONSIVENESS
+  At widths <= 768px (tablet or phone),
+  let's stack the sidebar on top, then the main window below.
+*/
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column; /* Stack vertically */
+    height: auto; /* Let content grow in height */
   }
-  to {
-    transform: rotate(360deg);
+
+  .main-window {
+    border-left: none; /* Remove the left border since sidebar is no longer on the left */
+    border-top: 2px solid #808080; /* Optional top border to mimic Windows XP style */
   }
 }
